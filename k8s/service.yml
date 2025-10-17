@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-node-api-service
+  labels:
+    app: kubernetes-node-api
+spec:
+  selector:
+    app: kubernetes-node-api
+  ports:
+    - protocol: TCP
+      port: 3000 # service port
+      targetPort: 3000 # container port
+  type: NodePort # loadbalancer if cloud provider is used
